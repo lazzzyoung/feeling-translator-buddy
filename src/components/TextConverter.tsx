@@ -42,7 +42,9 @@ export function TextConverter({ apiKey }: TextConverterProps) {
         body: JSON.stringify({
           contents: [{
             parts: [{
-              text: `다음 문장을 F 유형 성격을 가진 사람처럼 공감 있고 따뜻하게 바꿔줘. 예의는 지키되 감정을 전달하는 데 집중해줘. 원래 의미는 유지하면서 더 감정적이고 배려 있는 표현으로 바꿔줘.
+              text: `다음 문장을 F 유형 성격을 가진 사람처럼 공감 있고 따뜻하게 바꿔줘. 예의는 지키되 감정을 전달하는 데 집중해줘. 원래 의미는 유지하면서 더 감정적이고 배려 있는 표현으로 바꿔줘. 
+
+중요: 입력 문장의 말투(반말/존댓말)를 그대로 유지해서 변환해줘. 반말 입력이면 반말로, 존댓말 입력이면 존댓말로 답변해줘.
 
 입력 문장: "${inputText}"`
             }]
@@ -95,7 +97,7 @@ export function TextConverter({ apiKey }: TextConverterProps) {
       <Card>
         <CardHeader>
           <CardTitle className="gradient-text text-2xl font-bold text-center">
-            You can F 💝
+            You can F ❤️
           </CardTitle>
           <CardDescription className="text-center text-lg">
             당신의 T식 문장을 F처럼 바꿔보세요!
@@ -143,7 +145,7 @@ export function TextConverter({ apiKey }: TextConverterProps) {
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
                 <Brain className="h-5 w-5" />
-                🧠 원본 (T 스타일)
+                원본 (T 스타일)
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -158,7 +160,7 @@ export function TextConverter({ apiKey }: TextConverterProps) {
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-pink-700 dark:text-pink-300">
                 <Heart className="h-5 w-5" />
-                ❤️ 변환 결과 (F 스타일)
+                변환 결과 (F 스타일)
               </CardTitle>
             </CardHeader>
             <CardContent>
