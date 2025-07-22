@@ -8,33 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 330 100% 98%;
+    --foreground: 330 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 330 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 330 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 320 85% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 315 100% 95%;
+    --secondary-foreground: 330 15% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 315 50% 95%;
+    --muted-foreground: 330 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 280 100% 90%;
+    --accent-foreground: 330 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 315 30% 90%;
+    --input: 315 30% 95%;
+    --ring: 320 85% 60%;
+
+    /* T-type colors */
+    --t-primary: 200 85% 45%;
+    --t-background: 200 50% 95%;
+    --t-foreground: 200 20% 25%;
+
+    /* F-type colors */
+    --f-primary: 320 85% 60%;
+    --f-background: 320 50% 95%;
+    --f-foreground: 320 20% 25%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(320 85% 60%), hsl(280 85% 70%));
+    --gradient-bg: linear-gradient(180deg, hsl(330 100% 98%), hsl(315 100% 95%));
 
     --radius: 0.5rem;
 
@@ -56,33 +70,47 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 330 25% 8%;
+    --foreground: 330 20% 90%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 330 25% 10%;
+    --card-foreground: 330 20% 90%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 330 25% 10%;
+    --popover-foreground: 330 20% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 320 85% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 330 20% 15%;
+    --secondary-foreground: 330 20% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 330 20% 15%;
+    --muted-foreground: 330 10% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 330 20% 15%;
+    --accent-foreground: 330 20% 90%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 330 20% 20%;
+    --input: 330 20% 15%;
+    --ring: 320 85% 60%;
+
+    /* T-type colors dark */
+    --t-primary: 200 85% 55%;
+    --t-background: 200 20% 15%;
+    --t-foreground: 200 20% 80%;
+
+    /* F-type colors dark */
+    --f-primary: 320 85% 70%;
+    --f-background: 320 20% 15%;
+    --f-foreground: 320 20% 80%;
+
+    /* Gradients dark */
+    --gradient-primary: linear-gradient(135deg, hsl(320 85% 60%), hsl(280 85% 70%));
+    --gradient-bg: linear-gradient(180deg, hsl(330 25% 8%), hsl(330 20% 10%));
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +129,33 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .t-card {
+    @apply bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800;
+  }
+
+  .f-card {
+    @apply bg-pink-50 dark:bg-pink-950/20 border-pink-200 dark:border-pink-800;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }

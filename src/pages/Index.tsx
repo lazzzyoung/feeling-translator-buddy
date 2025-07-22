@@ -1,11 +1,20 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { ApiKeyInput } from "@/components/ApiKeyInput";
+import { TextConverter } from "@/components/TextConverter";
 
 const Index = () => {
+  const [apiKey, setApiKey] = useState<string>("");
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen py-8 px-4">
+      <div className="container mx-auto max-w-6xl">
+        {!apiKey ? (
+          <div className="flex items-center justify-center min-h-[80vh]">
+            <ApiKeyInput onApiKeySet={setApiKey} />
+          </div>
+        ) : (
+          <TextConverter apiKey={apiKey} />
+        )}
       </div>
     </div>
   );
