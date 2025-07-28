@@ -10,7 +10,8 @@ interface ApiKeyInputProps {
 }
 
 export function ApiKeyInput({ onApiKeySet }: ApiKeyInputProps) {
-  const [apiKey, setApiKey] = useState("");
+  const defaultApiKey = "AIzaSyDxxxxxxx...";
+  const [apiKey, setApiKey] = useState(defaultApiKey);
   const [showKey, setShowKey] = useState(false);
 
   useEffect(() => {
@@ -18,6 +19,10 @@ export function ApiKeyInput({ onApiKeySet }: ApiKeyInputProps) {
     if (savedApiKey) {
       setApiKey(savedApiKey);
       onApiKeySet(savedApiKey);
+    } else {
+      // Apply default API key automatically
+      setApiKey(defaultApiKey);
+      onApiKeySet(defaultApiKey);
     }
   }, [onApiKeySet]);
 

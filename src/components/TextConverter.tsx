@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Brain, Heart, Sparkles, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { ShareButtons } from "@/components/ShareButtons";
 
 interface TextConverterProps {
   apiKey: string;
@@ -139,6 +140,7 @@ export function TextConverter({ apiKey }: TextConverterProps) {
 
       {/* Result Section */}
       {result && (
+        <div className="result-section">
         <div className="grid md:grid-cols-2 gap-6 animate-fade-in">
           {/* Original T-style */}
           <Card className="t-card border-2">
@@ -169,6 +171,13 @@ export function TextConverter({ apiKey }: TextConverterProps) {
               </p>
             </CardContent>
           </Card>
+        </div>
+        
+        {/* Share Buttons */}
+        <ShareButtons 
+          originalText={result.original}
+          convertedText={result.converted}
+        />
         </div>
       )}
     </div>
