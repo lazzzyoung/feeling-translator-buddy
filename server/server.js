@@ -1,4 +1,3 @@
-// @ts-check
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -14,7 +13,6 @@ app.use(express.json());
 app.post("/api/f-convert", async (req, res) => {
   const { input } = req.body;
   const apiKey = process.env.GEMINI_API_KEY;
-  // console.log("🔐 API Key 있음?", !!apiKey); 
 
   if (!input || typeof input !== "string") {
     return res.status(400).json({ error: "유효한 입력이 필요합니다." });
@@ -41,7 +39,6 @@ app.post("/api/f-convert", async (req, res) => {
     );
 
     const data = await response.json();
-    // console.log("🟡 Gemini 응답 전체:", JSON.stringify(data, null, 2));
     const result = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (!result) throw new Error("Gemini API 응답 없음");
@@ -52,7 +49,6 @@ app.post("/api/f-convert", async (req, res) => {
     res.status(500).json({ error: "Gemini API 호출 실패" });
   }
 });
-
 
 app.post("/api/f-answer", async (req, res) => {
   const { question } = req.body;

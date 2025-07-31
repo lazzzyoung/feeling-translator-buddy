@@ -1,0 +1,14 @@
+{
+    "name": "youcanf-server",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+      "dev": "nodemon server.js",
+      "start": "node server.js"   
+    },
+    "dependencies": {
+      "express": "^4.19.2",
+      "dotenv": "^17.2.1",
+      "cors": "^2.8.5"
+    }
+  }
