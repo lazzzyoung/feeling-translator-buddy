@@ -7,7 +7,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
+    // "allowImportingTsExtensions": true,
     "outDir": "dist",   
     "strict": true,
     // Alias
