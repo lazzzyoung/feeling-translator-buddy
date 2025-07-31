@@ -23,6 +23,7 @@ interface TextConverterProps {
 }
 
 export function TextConverter({ apiKey }: TextConverterProps) {
+  const API_BASE = import.meta.env.VITE_API_BASE;
   const [inputText, setInputText] = useState("");
   const [result, setResult] = useState<ConversionResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -31,6 +32,7 @@ export function TextConverter({ apiKey }: TextConverterProps) {
   const [fAnswer, setFAnswer] = useState("");     
   const [isAnswering, setIsAnswering] = useState(false);
 
+  
   const { toast } = useToast();
 
   const convertText = async () => {
@@ -55,7 +57,7 @@ export function TextConverter({ apiKey }: TextConverterProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8080/api/f-convert", {
+      const response = await fetch(`${API_BASE}/api/f-convert`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ input: inputText }),
@@ -103,7 +105,7 @@ export function TextConverter({ apiKey }: TextConverterProps) {
     setIsAnswering(true);
 
     try {
-      const response = await fetch("http://localhost:8080/api/f-answer", {
+      const response = await fetch(`${API_BASE}/api/f-convert`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: fQuestion }),
