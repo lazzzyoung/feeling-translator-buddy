@@ -105,7 +105,7 @@ export function TextConverter({ apiKey }: TextConverterProps) {
     setIsAnswering(true);
 
     try {
-      const response = await fetch(`${API_BASE}/api/f-convert`, {
+      const response = await fetch(`${API_BASE}/api/f-answer`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: fQuestion }),
