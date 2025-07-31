@@ -148,6 +148,7 @@ export function TextConverter({ apiKey }: TextConverterProps) {
             F가 한 질문을 입력하면, F처럼 다정한 답변을 추천해줘요.
           </CardDescription>
         </CardHeader>
+        
         <CardContent className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="f-question" className="text-base font-medium text-pink-600">

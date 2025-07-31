@@ -8,6 +8,7 @@ const Index = () => {
 
   return (
     <>
+    
       {/* 양옆 광고 */}
       <AdSlot id="adsense-slot-left" position="left" />
       <AdSlot id="adsense-slot-right" position="right" />
