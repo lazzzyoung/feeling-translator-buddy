@@ -91,5 +91,6 @@ app.post("/api/f-answer", async (req, res) => {
 });
 
 app.listen(port, () => {
+  res.send("✅ You Can F Server is running!");
   console.log(`🚀 서버가 http://localhost:${port} 에서 실행 중`);
 });
