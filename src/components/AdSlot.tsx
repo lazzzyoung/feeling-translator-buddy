@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useEffect } from "react";
 
 interface AdSlotProps {
   id: string;
@@ -16,21 +17,33 @@ export function AdSlot({ id, className, position }: AdSlotProps) {
     bottom: "w-full h-24 mt-8",
   };
 
+  // ✅ adsbygoogle 다시 push 보장
+  useEffect(() => {
+    try {
+      // @ts-ignore
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error("Adsense error:", e);
+    }
+  }, []);
+
   return (
     <div
       id={id}
       className={cn(baseClasses, positionClasses[position], className)}
     >
-      {/* ✅ 구글 애드센스 광고 삽입 */}
       <ins
         className="adsbygoogle"
-        style={{ display: "block" }}
+        style={{
+          display: "block",
+          width: position === "bottom" ? "100%" : "160px", // left/right 고정폭, bottom은 full
+          height: position === "bottom" ? "100px" : "600px", // bottom은 배너, 양옆은 세로형
+        }}
         data-ad-client="ca-pub-3056616618352915"
-        data-ad-slot="1234567890"   // ✅ 여기 슬롯 ID는 단위광고 생성 후 교체
+        data-ad-slot="1234567890" // ✅ 슬롯 ID 교체
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   );
 }
