@@ -8,10 +8,6 @@ const Index = () => {
 
   return (
     <>
-      {/* 양옆 광고 (Adfit으로 변경됨) */}
-      <AdSlot id="애드핏_광고단위ID_LEFT" position="left" />
-      <AdSlot id="애드핏_광고단위ID_RIGHT" position="right" />
-
       <div className="min-h-screen py-8 px-4">
         <div className="container mx-auto max-w-6xl">
           {!apiKey ? (
@@ -19,11 +15,20 @@ const Index = () => {
               <ApiKeyInput onApiKeySet={setApiKey} />
             </div>
           ) : (
-            <TextConverter apiKey={apiKey} />
+            <>
+              {/* ✅ 콘텐츠 시작 부분에 광고 (중간 광고) */}
+              <AdSlot id="DAN-2mAOQfyQ27S1Y7yE" position="center" />
+
+              {/* 실제 변환 기능 */}
+              <TextConverter apiKey={apiKey} />
+
+              {/* ✅ 변환 결과 끝나고도 광고 하나 넣을 수 있음 */}
+              <AdSlot id="DAN-2mAOQfyQ27S1Y7yE" position="center" />
+            </>
           )}
 
-          {/* 하단 광고 */}
-          <AdSlot id="애드핏_광고단위ID_BOTTOM" position="bottom" />
+          {/* ✅ 페이지 하단 광고 */}
+          <AdSlot id="DAN-2mAOQfyQ27S1Y7yE" position="bottom" />
         </div>
       </div>
     </>
