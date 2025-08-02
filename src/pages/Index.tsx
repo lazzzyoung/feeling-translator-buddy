@@ -8,10 +8,9 @@ const Index = () => {
 
   return (
     <>
-    
-      {/* 양옆 광고 */}
-      <AdSlot id="adsense-slot-left" position="left" />
-      <AdSlot id="adsense-slot-right" position="right" />
+      {/* 양옆 광고 (Adfit으로 변경됨) */}
+      <AdSlot id="애드핏_광고단위ID_LEFT" position="left" />
+      <AdSlot id="애드핏_광고단위ID_RIGHT" position="right" />
 
       <div className="min-h-screen py-8 px-4">
         <div className="container mx-auto max-w-6xl">
@@ -24,7 +23,7 @@ const Index = () => {
           )}
 
           {/* 하단 광고 */}
-          <AdSlot id="adsense-slot-bottom" position="bottom" />
+          <AdSlot id="애드핏_광고단위ID_BOTTOM" position="bottom" />
         </div>
       </div>
     </>
