@@ -22,13 +22,11 @@ const Index = () => {
               {/* 실제 변환 기능 */}
               <TextConverter apiKey={apiKey} />
 
-              {/* ✅ 변환 결과 끝나고도 광고 하나 넣을 수 있음 */}
-              <AdSlot id="DAN-2mAOQfyQ27S1Y7yE" position="center" />
             </>
           )}
 
           {/* ✅ 페이지 하단 광고 */}
-          <AdSlot id="DAN-2mAOQfyQ27S1Y7yE" position="bottom" />
+          <AdSlot id="DAN-USCAtEal0Gnv31xU" position="bottom" />
         </div>
       </div>
     </>
